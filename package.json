@@ -12,6 +12,7 @@
     "start1": "nodemon express.js",
     "server": "nodemon express.js",
     "client": "quasar dev --prefix client",
+    "build": "quasar build",
     "start": "concurrently \"npm run server\" \"npm run client\" ",
     "postinstall": "npm run build"
   },
