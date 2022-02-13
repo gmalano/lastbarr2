@@ -1,8 +1,11 @@
 var express = require('express')
-//const sqlite3 = require('sqlite3').verbose()
 var app = express()
+
 var cors = require('cors')
 app.use(cors())
+
+var compression = require('compression')
+app.use(compression())
 
 // Server port
 

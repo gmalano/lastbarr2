@@ -11,7 +11,8 @@
     "test": "echo \"No test specified\" && exit 0",
     "start1": "nodemon express.js",
     "server": "nodemon express.js",
-    "client": "quasar dev --prefix client",
+    "client": "quasar dev ",
+    "dev": "quasar dev ",
     "build": "quasar build",
     "start": "concurrently \"npm run server\" \"npm run client\" ",
     "postinstall": "npm run build"
@@ -21,6 +22,7 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "better-sqlite3": "^7.5.0",
+    "compression": "^1.7.4",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "express": "^4.17.2",

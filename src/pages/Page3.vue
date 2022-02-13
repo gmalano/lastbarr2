@@ -39,7 +39,7 @@
     </q-footer>
 
     <div>
-      <q-dialog v-model="open" @hide="onHide">
+      <q-dialog v-model="open" @hide="update()">
         <listaBar :bar="bar" :consumo="consumo" />
       </q-dialog>
     </div>
@@ -179,9 +179,7 @@ export default {
         });
     },
 
-    logChange(event) {
-      alert();
-    },
+
     onHide() {
       this.update();
     },
