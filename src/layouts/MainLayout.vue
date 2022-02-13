@@ -8,7 +8,7 @@
         <q-tabs align="justify" shrink stretch>
           <q-route-tab to="/page1">
             <q-avatar size="42px">
-              <img :src="require(`../Images/${idUsuario}.jpg`)" />
+              <img :src="require(`../images/${idUsuario}.jpg`)" />
             </q-avatar>
           </q-route-tab>
 

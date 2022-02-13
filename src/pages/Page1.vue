@@ -14,7 +14,7 @@
         <q-item-section>
           <div>
             <q-avatar>
-              <img :src="require(`../Images/${u.idUsuario}.jpg`)" />
+              <img :src="require(`../images/${u.idUsuario}.jpg`)" />
             </q-avatar>
             {{ u.Usuario }}
           </div>
