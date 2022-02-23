@@ -1,1 +1,36 @@
 // app global css in SCSS form
+
+
+
+.q-page{
+  background: #136a8a;
+  //background: -webkit-linear-gradient(to bottom, red, #136a8a)
+  background: linear-gradient(to bottom, blue, #136a8a);
+  color: white;
+  // max-width:100vh;
+  // width: calc((100vh - 50px));
+}
+
+ .skyline{
+  flex: 1 1 80px;
+  background: url(../assets/skyline.png);
+  background-size: contain;
+  background-position:  top right;
+}
+
+.xq-header{
+  max-width:100vh;
+}
+
+ .xq-page-sticky {
+  max-width:100vh;
+}
+
+
+.xq-footer {
+  max-width:100vh;
+}
+#xapp
+{
+  max-width:100vh;
+}

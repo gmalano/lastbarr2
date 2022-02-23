@@ -6,7 +6,8 @@ export default new Vuex.Store({
   state: {
     idMesa: 0,
     misMesas: 0,
-    open: false
+    mesasLibres: 0,
+    open: false,
   },
   // Basically `computed` values shared across components.
   getters: {
@@ -28,6 +29,9 @@ export default new Vuex.Store({
     setOpen: function (state, payload) {
       state.open = payload
     },
+    setMesasLibres: function (state, payload) {
+      state.MesasLibres = payload
+    },
   },
 
   // Asynchronous methods that can call mutation methods to mutate the state via commits.
@@ -41,7 +45,9 @@ export default new Vuex.Store({
     },
     setOpen: function (store, payload) {
       store.commit('setOpen', payload)
-    }
-
+    },
+    setMesasLibres: function (state, payload) {
+      store.commit('setMesasLibres', payload)
+    },
   },
 })

@@ -1,24 +1,82 @@
 import { boot } from 'quasar/wrappers'
+import { Loading, QSpinnerGears, Notify, Dialog } from 'quasar'
+
 import axios from 'axios'
 
-// Be careful when using SSR for cross-request state pollution
-// due to creating a Singleton instance here;
-// If any client changes this (global) instance, it might be a
-// good idea to move this instance creation inside of the
-// "export default () => {}" function below (which runs individually
-// for each client)
-const $axios = axios.create({ baseURL: 'http://192.168.1.4:3000/' })
+/****************************************************************************/
+const $axios = axios.create({ baseURL: 'http://192.168.1.20:3000/' })
+
+/****************************************************************************/
+const $alert = (text, color, ok) => {
+  Notify.create({
+    icon: ok ? 'done_outline' : 'warning',
+    type: 'positive',
+    position: 'center',
+    classes: 'glossy',
+    timeout: 2500,
+    message: text ? text : 'Error',
+    actions: [{ icon: 'close', color: 'white' }],
+    color: color ? color : 'red',
+  })
+}
+
+// /****************************************************************************/
+// const $dialog = (text, cancel) => {
+//   Dialog.create({
+//     title: 'Confirmar',
+//     message: text,
+//     cancel: cancel,
+//     persistent: true,
+//   })
+//     .onOk(() => {
+//       return 1
+//     })
+//     .onCancel(() => {
+//       return 0
+//     })
+//     .onDismiss(() => {
+//       return 0
+//     })
+// }
+
+// /****************************************************************************/
+
+// async function $dialog(text, cancel) {
+//   let ok0 = 0
+//   await $dialog0(text, cancel).then((ok) => (ok0 = ok))
+//   return ok0
+// }
+
+function $dialog(text, cancel) {
+  return new Promise((resolve, reject) => {
+    const dialog = (text, cancel) => {
+      Dialog.create({
+        title: 'Confirmar',
+        message: text,
+        cancel: cancel,
+        persistent: true,
+      })
+        .onOk(() => {
+          resolve(1)
+        })
+        .onCancel(() => {
+          reject(0)
+        })
+    }
+    dialog(text, cancel)
+
+    //
+  })
+}
+
+/****************************************************************************/
 
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
 
   app.config.globalProperties.$axios = $axios
-  // ^ ^ ^ this will allow you to use this.$axios (for Vue Options API form)
-  //       so you won't necessarily have to import axios in each vue file
-
-  app.config.globalProperties.$api = $axios
-  // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
-  //       so you can easily perform requests against your app's API
+  app.config.globalProperties.$alert = $alert
+  app.config.globalProperties.$dialog = $dialog
 })
 
 export { $axios }

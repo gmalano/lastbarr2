@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
      <div style="max-width: 400px">
-    <q-list padding>
+    <q-list  padding>
       <q-item
         clickable
         v-ripple
@@ -10,8 +10,9 @@
         @click.prevent="selectItem(u.idUsuario)"
         :active="activo == u.idUsuario"
         active-class="my-menu-link"
+
       >
-        <q-item-section>
+        <q-item-section >
           <div>
             <q-avatar>
               <img :src="require(`../images/${u.idUsuario}.jpg`)" />
@@ -47,10 +48,10 @@ export default {
 
   methods: {
     selectItem(id) {
-
       this.$store.commit('setUsuario',  id );
       localStorage.setItem("idUsuario", id);
       this.activo = id;
+      
     },
 
     gusuarios() {
@@ -59,22 +60,22 @@ export default {
         .then((response) => {
           this.usuarios = response.data;
           this.error = response;
-
+          this.usuarios.shift()
         })
         .catch((error) => {
-          console.log("error .get(/usuarios) ");
+          console.log("error gusuarios", error );
         });
     },
- gborrarmesas() {
-   this.$axios
+ async gborrarmesas() {
+   await this.$axios
         .get("/borrarmesas")
         .then((response) => {
-          storage.removeItem("idUsuario");
-          storage.removeItem("idorden");
+          //storage.removeItem("idUsuario");
+         // storage.removeItem("idorden");
 
           })
         .catch((error) => {
-          console.log("error .get(/usuarios) ");
+          console.log("error gborrarmesas" ,error);
         });
     },
 

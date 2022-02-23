@@ -12,5 +12,8 @@
       "name": "bar",
       "database": "${workspaceFolder:lastbar2}/datos/datos.db"
     }
-  ]
+  ],
+  "[vue]": {
+    "editor.defaultFormatter": "SimonSiefke.prettier-vscode"
+  }
 }
