@@ -70,13 +70,14 @@ app.get('/usuarios/:id?', function (req, res) {
 })
 
 app.get('/mesaslibres/', function (req, res) {
-  let _id = req.params.id ? req.params.id : 'idUsuario'
+  
   let sql =
     `select idMesa
             from mesas m
             where m.idusuario isnull` + ''
 
   const rows = db.prepare(sql).all()
+  io.emit('MESASLIBRES',rows)
   res.send(rows)
 })
 

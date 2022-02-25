@@ -3,7 +3,7 @@
     <q-page>
       <q-header elevated class="bg-primary text-white">
         <q-toolbar>
-          <q-btn flat to="/">Home</q-btn>
+          <q-btn flat to="/" padding="lg">Home</q-btn>
 
           <q-space />
           <q-tabs align="justify" shrink stretch>
@@ -81,7 +81,7 @@
 //
 <script>
 import { useQuasar } from 'quasar'
-//const { ipcMain } = require('electron')
+import io from 'socket.io-client'
 
 export default {
   name: 'PageIndex',
@@ -89,10 +89,14 @@ export default {
     return {
       search: '',
       activo: 0,
+      socket: io('192.168.1.20:3000'),
     }
   },
 
   created: function () {
+    this.socket.on('MESASLIBRES', (rows) => {
+      this.$store.commit('setMesasLibres', rows.length)
+    })
     this.gusuarios()
     this.activo = this.$store.state.idUsuario //localStorage.getItem("idUsuario");
     //this.$dialog("hola","cancela").then(ok => alert(ok)).catch(ok => alert("no -->"+ok))

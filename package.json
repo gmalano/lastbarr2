@@ -1,8 +1,8 @@
 {
-  "name": "lastbar2",
+  "name": "lastbarr2",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "description": "LastBarR2",
+  "productName": "LastBarR2",
   "author": "gmalano <gmalano@gmail.com>",
   "private": true,
   "scripts": {
@@ -27,23 +27,20 @@
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "express": "^4.17.2",
-    "fox-wamp": "^0.7.10",
     "fs": "^0.0.1-security",
     "quasar": "^2.0.0",
     "socket.io": "^4.4.1",
     "socket.io-client": "^4.4.1",
     "vue": "^3.0.0",
     "vue-axios-cors": "^1.0.1",
-    "vue-modal-dialogs": "^3.0.0",
     "vue-router": "^4.0.0",
-    "vue2-filters": "^0.14.0",
-    "vuex": "^4.0.1",
-    "ws": "^8.5.0"
+    "vuex": "^4.0.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
     "@quasar/app": "^3.0.0",
-    "electron": "^17.0.1",
+    "@vue/devtools": "^6.0.12",
+    "electron": "^17.1.0",
     "electron-packager": "^15.2.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^8.1.0",

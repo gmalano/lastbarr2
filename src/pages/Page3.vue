@@ -65,7 +65,7 @@ import listaBar from '../components/listaBar.vue'
 import listaConsumo from '../components/listaConsumo.vue'
 //import dialogo from '../components/dialogo.vue'
 
-import DialogService from '../services/DialogService.vue'
+//import DialogService from '../services/DialogService.vue'
 
 export default {
   components: {

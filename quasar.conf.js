@@ -38,7 +38,12 @@ module.exports = configure(function (ctx) {
 
       'roboto-font', // optional, you are not bound to it
       'material-icons', // optional, you are not bound to it
+      
     ],
+    bin: {
+      windowsAndroidStudio:
+        '"d:\\Program Files\\Android\\Android Studio\\bin\\studio64.exe"',
+    },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
