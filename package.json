@@ -9,13 +9,13 @@
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "start1": "nodemon express.js",
     "server": "node ./server/express.js",
     "client": "quasar dev ",
     "dev": "quasar dev ",
     "build": "quasar build",
     "xstart": "concurrently \"npm run server\" \"npm run client\" ",
-    "start": " \"npm run server\"  ",
+    "start": "node ./server/express.js",
+
 
     "postinstall": "npm run build"
   },
