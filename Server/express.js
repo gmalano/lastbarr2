@@ -12,7 +12,7 @@ app.use(compression())
 var os = require('os')
 
 let url = os.hostname()
-let baseURL = `http://${url}:3000`
+let baseURL = `https://${url}:3000`
 
 const server = app.listen(HTTP_PORT, () => {
   console.log('Server running on port %PORT%'.replace('%PORT%', HTTP_PORT))

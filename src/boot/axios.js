@@ -14,7 +14,7 @@ import axios from 'axios'
 const $url = window.location.hostname
 
 const $axios = axios.create({
-  baseURL: `http://${$url}:3000`,
+  baseURL: `https://${$url}:3000`,
 })
 
 /****************************************************************************/
