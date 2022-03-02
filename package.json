@@ -15,7 +15,8 @@
     "dev": "quasar dev ",
     "build": "quasar build",
     "xstart": "concurrently \"npm run server\" \"npm run client\" ",
-    "start": " \"npm run client\" ",
+    "start": " \"npm run server\"  ",
+
     "postinstall": "npm run build"
   },
   "dependencies": {
