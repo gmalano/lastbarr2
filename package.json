@@ -10,11 +10,12 @@
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
     "start1": "nodemon express.js",
-    "server": "nodemon ./server/express.js",
+    "server": "node ./server/express.js",
     "client": "quasar dev ",
     "dev": "quasar dev ",
     "build": "quasar build",
-    "start": "concurrently \"npm run server\" \"npm run client\" ",
+    "xstart": "concurrently \"npm run server\" \"npm run client\" ",
+    "start": " \"npm run client\" ",
     "postinstall": "npm run build"
   },
   "dependencies": {
