@@ -14,7 +14,8 @@
     "dev": "quasar dev ",
     "build": "quasar build",
     "start": "concurrently \"npm run server\" \"npm run client\" ",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "heroku-postbuild": "yarn && yarn build"
   },
   "dependencies": {
     "@electron/remote": "^2.0.5",

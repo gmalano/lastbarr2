@@ -87,7 +87,7 @@ export default {
     this.socket.on('MESASLIBRES', () => {
       this.gtodas()
       this.glibres()
-     //gseleccionarmesa(this.idMesa, this.orden)
+      //this.gseleccionarmesa(this.idMesa, this.orden)
     })
     this.glibres()
     this.gtodas()

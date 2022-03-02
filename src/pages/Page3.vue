@@ -18,8 +18,10 @@
         </q-avatar>
       </div>
     </div>
+    <div >
+      <listaConsumo :consumo="consumo" @update-cart="update" />
 
-    <listaConsumo :consumo="consumo" @update-cart="update" />
+    </div>
 
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
       <q-btn
@@ -62,6 +64,7 @@
 
 <script>
 import listaBar from '../components/listaBar.vue'
+
 import listaConsumo from '../components/listaConsumo.vue'
 //import dialogo from '../components/dialogo.vue'
 
@@ -120,7 +123,7 @@ export default {
         .get(`/mismesas/${this.activo}`)
         .then((response) => {
           this.misMesas = response.data
-          this.haymesa = this.misMesas.length  &&  this.activo           //gmalano
+          this.haymesa = this.misMesas.length && this.activo //gmalano
         })
         .catch((error) => {
           console.log('error get')
@@ -192,24 +195,21 @@ export default {
       if (confirm(mensaje)) {
         let vm = this
 
-          this.$axios
-            .get(`cerrarmesa/${vm.idMesa}`)
-            .then((response) => {
-              for (let i = 0; i < vm.consumo.length; i++) {
-                vm.consumo.pop()
-                --i
-              }
-              vm.idMesa = -1
-              vm.$store.commit(
-                'setMesasLibres',
-                vm.$store.state.MesasLibres + 1,
-              )
-              vm.$alert('Mesa Cerrada!', 'green', 'ok')
-              vm.gmismesas()
-            })
-            .catch((error) => {
-              console.log('error', error)
-            })
+        this.$axios
+          .get(`cerrarmesa/${vm.idMesa}`)
+          .then((response) => {
+            for (let i = 0; i < vm.consumo.length; i++) {
+              vm.consumo.pop()
+              --i
+            }
+            vm.idMesa = -1
+            vm.$store.commit('setMesasLibres', vm.$store.state.MesasLibres + 1)
+            vm.$alert('Mesa Cerrada!', 'green', 'ok')
+            vm.gmismesas()
+          })
+          .catch((error) => {
+            console.log('error', error)
+          })
       }
 
       // try {

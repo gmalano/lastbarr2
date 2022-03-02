@@ -89,13 +89,14 @@ export default {
     return {
       search: '',
       activo: 0,
-      socket: io(this.$url+":3000"),
+      socket: io(this.$url + ':3000'),
     }
   },
 
   created: function () {
     this.socket.on('MESASLIBRES', (rows) => {
-      this.$store.commit('setMesasLibres', rows.length)
+      let rl = rows==null?0:rows.length
+      this.$store.commit('setMesasLibres', rl||0)
     })
     this.gusuarios()
     this.activo = this.$store.state.idUsuario //localStorage.getItem("idUsuario");
@@ -106,8 +107,8 @@ export default {
     idUsuario: function () {
       let l = localStorage.getItem('idUsuario')
       let v = this.$store.state.idUsuario
-      let u = v ? v : l
-      u = u ? u : 0
+      let u = v ? v : 0
+      //u = u ? u : 0
       this.$store.commit('setUsuario', u)
 
       return u

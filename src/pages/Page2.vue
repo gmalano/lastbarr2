@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <div class="q-pa-md q-gutter-sm" padding>
+    <div v-if="activo >0" class="q-pa-md q-gutter-sm" padding>
       <q-avatar
         v-for="u in libres"
         :key="u.idMesa"
@@ -37,7 +37,7 @@ export default {
 
   methods: {
     glibres() {
-      
+
       this.$axios
         .get("/mesaslibres")
         .then((response) => {

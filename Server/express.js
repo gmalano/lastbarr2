@@ -8,11 +8,21 @@ var compression = require('compression')
 var app = express()
 app.use(cors())
 app.use(compression())
-
 var os = require('os')
 
 let url = os.hostname()
-let baseURL = `https://${url}:3000`
+let baseURL = `http://${url}:3000`
+
+
+  serveStatic = require('serve-static'),
+  history = require('connect-history-api-fallback')
+  app.use(history())
+  app.use(serveStatic(__dirname + '/dist/spa'))
+  
+
+//console.log(req.protocol)
+
+
 
 const server = app.listen(HTTP_PORT, () => {
   console.log('Server running on port %PORT%'.replace('%PORT%', HTTP_PORT))
@@ -79,7 +89,7 @@ app.get('/usuarios/:id?', function (req, res) {
 
 app.get('/mesaslibres/', function (req, res) {
   let sql =
-    `select idMesa
+    `select idMesa, (select count(iDmesa) from mesas) as totales
             from mesas m
             where m.idusuario isnull` + ''
 

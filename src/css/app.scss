@@ -7,15 +7,15 @@
   //background: -webkit-linear-gradient(to bottom, red, #136a8a)
   background: linear-gradient(to bottom, blue, #136a8a);
   color: white;
-  // max-width:100vh;
-  // width: calc((100vh - 50px));
+  //max-width:100vh;
+   //width: calc((100vh - 30%));
 }
 
  .skyline{
   flex: 1 1 80px;
   background: url(../assets/skyline.png);
   background-size: contain;
-  background-position:  top right;
+  background-position:  top right fixed;
 }
 
 .xq-header{
