@@ -13,10 +13,7 @@
     "client": "quasar dev ",
     "dev": "quasar dev ",
     "build": "quasar build",
-    "xstart": "concurrently \"npm run server\" \"npm run client\" ",
-    "start": "node ./server/express.js",
-
-
+    "start": "concurrently \"npm run server\" \"npm run client\" ",
     "postinstall": "npm run build"
   },
   "dependencies": {
@@ -26,6 +23,7 @@
     "axios": "^0.21.1",
     "better-sqlite3": "^7.5.0",
     "compression": "^1.7.4",
+    "concurrently": "^7.0.0",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "express": "^4.17.2",
