@@ -78,7 +78,8 @@ export default {
       consumo: [],
       idMesa: 0,
       orden: 0,
-      socket: io('192.168.1.20:3000'),
+      socket: io(this.$url+":3000"),
+
     }
   },
 
@@ -86,7 +87,7 @@ export default {
     this.socket.on('MESASLIBRES', () => {
       this.gtodas()
       this.glibres()
-     gseleccionarmesa(this.idMesa, this.orden)
+     //gseleccionarmesa(this.idMesa, this.orden)
     })
     this.glibres()
     this.gtodas()

@@ -89,7 +89,7 @@ export default {
     return {
       search: '',
       activo: 0,
-      socket: io('192.168.1.20:3000'),
+      socket: io(this.$url+":3000"),
     }
   },
 

@@ -16,17 +16,20 @@
 <script>
 import io from 'socket.io-client'
 
+
 export default {
-  data() {
+
+data() {
     return {
       time: '',
-      socket: io('192.168.1.20:3000'),
+      socket: io(this.$url+":3000"),
     }
   },
 
   created: function () {
+    alert(this.$url)
     this.socket.on('MESSAGE', (data) => {
-      
+
       this.time = data
       // you can also do this.messages.push(data)
     })

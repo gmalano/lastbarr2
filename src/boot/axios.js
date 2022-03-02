@@ -1,10 +1,21 @@
+'use strict'
 import { boot } from 'quasar/wrappers'
 import { Loading, QSpinnerGears, Notify, Dialog } from 'quasar'
 
 import axios from 'axios'
 
+//import path from 'path'
+//import process from 'process'
+
 /****************************************************************************/
-const $axios = axios.create({ baseURL: 'http://192.168.1.20:3000/' })
+//let url = 'http://' + process.env.USERDOMAIN + ':3000/'
+//let url = 'http://192.168.1.2:3000/'
+
+const $url = window.location.hostname
+
+const $axios = axios.create({
+  baseURL: `http://${$url}:3000`,
+})
 
 /****************************************************************************/
 const $alert = (text, color, ok) => {
@@ -77,6 +88,7 @@ export default boot(({ app }) => {
   app.config.globalProperties.$axios = $axios
   app.config.globalProperties.$alert = $alert
   app.config.globalProperties.$dialog = $dialog
+  app.config.globalProperties.$url = $url
 })
 
 export { $axios }

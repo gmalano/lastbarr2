@@ -1,5 +1,4 @@
 'use strict'
-
 const HTTP_PORT = process.env.PORT || 3000
 var cors = require('cors')
 var express = require('express')
@@ -9,6 +8,11 @@ var compression = require('compression')
 var app = express()
 app.use(cors())
 app.use(compression())
+
+var os = require('os')
+
+let url = os.hostname()
+let baseURL = `http://${url}:3000`
 
 const server = app.listen(HTTP_PORT, () => {
   console.log('Server running on port %PORT%'.replace('%PORT%', HTTP_PORT))
@@ -58,6 +62,10 @@ app.get('/', (req, res, next) => {
   res.json({ message: 'Ok!' })
 })
 
+app.get('/url', (req, res, next) => {
+  res.json({ baseURL })
+})
+
 app.get('/usuarios/:id?', function (req, res) {
   //this.socket.emit('SEND_MESSAGE', {
 
@@ -70,14 +78,13 @@ app.get('/usuarios/:id?', function (req, res) {
 })
 
 app.get('/mesaslibres/', function (req, res) {
-  
   let sql =
     `select idMesa
             from mesas m
             where m.idusuario isnull` + ''
 
   const rows = db.prepare(sql).all()
-  io.emit('MESASLIBRES',rows)
+  io.emit('MESASLIBRES', rows)
   res.send(rows)
 })
 
