@@ -13,16 +13,12 @@ var os = require('os')
 let url = os.hostname()
 let baseURL = `http://${url}:3000`
 
-
-  serveStatic = require('serve-static'),
-  history = require('connect-history-api-fallback')
+/*var serveStatic = require('serve-static')
+  var history = require('connect-history-api-fallback')
   app.use(history())
-  app.use(serveStatic(__dirname + '/dist/spa'))
-  
+  app.use(serveStatic(__dirname + '/dist/spa'))*/
 
 //console.log(req.protocol)
-
-
 
 const server = app.listen(HTTP_PORT, () => {
   console.log('Server running on port %PORT%'.replace('%PORT%', HTTP_PORT))
